@@ -1,5 +1,5 @@
 FROM mariadb:10.1
 
-COPY . .
+COPY ./docker-healthcheck /usr/bin/
 
 HEALTHCHECK CMD ["/usr/bin/docker-healthcheck"]

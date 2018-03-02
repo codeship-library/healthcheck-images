@@ -8,24 +8,28 @@ postgres_app:
 mariadb_app:
   image: busybox:latest
   depends_on:
-    - mariadb101   
+    - mariadb101
 
 postgres93:
   build:
     image: codeship/postgres93
-    dockerfile_path: ./postgres/9.3.dockerfile
+    context: ./postgres
+    dockerfile: 9.3.dockerfile
 
 postgres96:
   build:
     image: codeship/postgres96
-    dockerfile_path: ./postgres/9.6.dockerfile
+    context: ./postgres
+    dockerfile: 9.6.dockerfile
 
 postgres101:
   build:
     image: codeship/postgres101
-    dockerfile_path: ./postgres/10.1.dockerfile
+    context: ./postgres
+    dockerfile: 10.1.dockerfile
 
 mariadb101:
   build:
     image: codeship/mariadb101
-    dockerfile_path: ./mariadb/10.1.dockerfile
+    context: ./postgres
+    dockerfile: 10.1.dockerfile

@@ -1,5 +1,5 @@
 FROM postgres:10.1-alpine
 
-COPY . .
+COPY ./docker-healthcheck /usr/bin/
 
 HEALTHCHECK CMD ["/usr/bin/docker-healthcheck"]
