@@ -1,6 +1,17 @@
-- name: Building Postgres
-  service: postgres_app
-  command: true
+- type: serial
+  name: Postgres
+  steps:
+    - name: postgres93_build
+      service: postgres93
+      command: true
+    # - type: push
+    #   tag: master
+    #   name: postgres93_push
+    #   service: postgres93
+    #   image_name: codeship/postgres93
+    #   image_tag: latest
+    #   registry: https://index.docker.io/v1/
+    #   encrypted_dockercfg_path: dockercfg.encrypted
 
 - name: Building Mariadb
   service: mariadb_app
