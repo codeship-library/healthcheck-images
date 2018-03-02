@@ -2,4 +2,4 @@ FROM mariadb:10.1
 
 COPY . .
 
-HEALTHCHECK CMD ["docker-healthcheck"]
+HEALTHCHECK CMD ["/usr/bin/docker-healthcheck"]
