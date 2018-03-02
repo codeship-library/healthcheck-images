@@ -1,4 +1,4 @@
-FROM postgres:9.3-alpine
+FROM postgres:10.1-alpine
 
 COPY . .
 

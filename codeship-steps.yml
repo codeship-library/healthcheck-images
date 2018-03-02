@@ -1,0 +1,7 @@
+- name: Building Postgres
+  service: postgres_app
+  command: true
+
+- name: Building Mariadb
+  service: mariadb_app
+  command: true
