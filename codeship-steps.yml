@@ -2,7 +2,7 @@
   name: Postgres
   steps:
     - name: Building Postgres
-      service: postgres_app
+      service: postgresApp
       command: true
     - type: push
       tag: master
@@ -33,7 +33,7 @@
   name: Mariadb
   steps:
     - name: Building Mariadb
-      service: mariadb_app
+      service: mariadbApp
       command: true
     - type: push
       tag: master

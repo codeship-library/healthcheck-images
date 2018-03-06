@@ -1,11 +1,11 @@
-postgres_app:
+postgresApp:
   image: busybox:latest
   depends_on:
     - postgres93
     - postgres96
     - postgres101
 
-mariadb_app:
+mariadbApp:
   image: busybox:latest
   depends_on:
     - mariadb101
