@@ -2,8 +2,6 @@ postgresApp:
   image: busybox:latest
   depends_on:
     - postgres93
-    - postgres96
-    - postgres101
 
 mariadbApp:
   image: busybox:latest
