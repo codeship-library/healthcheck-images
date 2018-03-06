@@ -1,33 +1,33 @@
-# - type: serial
-#   name: Postgres
-#   steps:
-#     - name: Building Postgres
-#       service: postgresApp
-#       command: true
-#     - type: push
-#       tag: master
-#       name: postgres93_push
-#       service: postgres93
-#       image_name: codeship/postgres93
-#       image_tag: latest
-#       registry: https://index.docker.io/v1/
-#       encrypted_dockercfg_path: dockercfg.encrypted
-#     - type: push
-#       tag: master
-#       name: postgres96_push
-#       service: postgres96
-#       image_name: codeship/postgres96
-#       image_tag: latest
-#       registry: https://index.docker.io/v1/
-#       encrypted_dockercfg_path: dockercfg.encrypted
-#     - type: push
-#       tag: master
-#       name: postgres101_push
-#       service: postgres101
-#       image_name: codeship/postgres101
-#       image_tag: latest
-#       registry: https://index.docker.io/v1/
-#       encrypted_dockercfg_path: dockercfg.encrypted
+- type: serial
+  name: Postgres
+  steps:
+    - name: Building Postgres
+      service: postgresApp
+      command: true
+    - type: push
+      tag: master
+      name: postgres93_push
+      service: postgres93
+      image_name: codeship/postgres93
+      image_tag: latest
+      registry: https://index.docker.io/v1/
+      encrypted_dockercfg_path: dockercfg.encrypted
+    - type: push
+      tag: master
+      name: postgres96_push
+      service: postgres96
+      image_name: codeship/postgres96
+      image_tag: latest
+      registry: https://index.docker.io/v1/
+      encrypted_dockercfg_path: dockercfg.encrypted
+    - type: push
+      tag: master
+      name: postgres101_push
+      service: postgres101
+      image_name: codeship/postgres101
+      image_tag: latest
+      registry: https://index.docker.io/v1/
+      encrypted_dockercfg_path: dockercfg.encrypted
 
 - type: serial
   name: Mariadb
