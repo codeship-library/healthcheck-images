@@ -12,24 +12,24 @@ mariadbApp:
 
 postgres93:
   build:
-    image: codeship/postgres93
+    image: codeship/postgres:93
     context: ./postgres
     dockerfile: 9.3.dockerfile
 
 postgres96:
   build:
-    image: codeship/postgres96
+    image: codeship/postgres:96
     context: ./postgres
     dockerfile: 9.6.dockerfile
 
 postgres101:
   build:
-    image: codeship/postgres101
+    image: codeship/postgres:101
     context: ./postgres
     dockerfile: 10.1.dockerfile
 
 mariadb101:
   build:
-    image: codeship/mariadb101
+    image: codeship/mariadb:101
     context: ./postgres
     dockerfile: 10.1.dockerfile

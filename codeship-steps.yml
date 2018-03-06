@@ -8,24 +8,24 @@
       tag: master
       name: postgres93_push
       service: postgres93
-      image_name: codeship/postgres93
-      image_tag: latest
+      image_name: codeship/postgres
+      image_tag: "9.3"
       registry: https://index.docker.io/v1/
       encrypted_dockercfg_path: dockercfg.encrypted
     - type: push
       tag: master
       name: postgres96_push
       service: postgres96
-      image_name: codeship/postgres96
-      image_tag: latest
+      image_name: codeship/postgres
+      image_tag: "9.6"
       registry: https://index.docker.io/v1/
       encrypted_dockercfg_path: dockercfg.encrypted
     - type: push
       tag: master
       name: postgres101_push
       service: postgres101
-      image_name: codeship/postgres101
-      image_tag: latest
+      image_name: codeship/postgres
+      image_tag: "10.1"
       registry: https://index.docker.io/v1/
       encrypted_dockercfg_path: dockercfg.encrypted
 
@@ -39,7 +39,7 @@
       tag: master
       name: mariadb101_push
       service: mariadb101
-      image_name: codeship/mariadb101
-      image_tag: latest
+      image_name: codeship/mariadb
+      image_tag: "10.1"
       registry: https://index.docker.io/v1/
       encrypted_dockercfg_path: dockercfg.encrypted
