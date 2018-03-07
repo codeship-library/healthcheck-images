@@ -1,61 +1,52 @@
-- type: serial
-  name: Postgres
+- type: parallel
+  name: Build
   steps:
-    - name: Building Postgres
+    - name: Build PostgreSQL
       service: postgresApp
-      command: true
-    - type: push
-      tag: master
-      name: postgres93_push
-      service: postgres93
-      image_name: codeship/postgres
-      image_tag: "9.3"
-      registry: https://index.docker.io/v1/
-      encrypted_dockercfg_path: dockercfg.encrypted
-    - type: push
-      tag: master
-      name: postgres94_push
-      service: postgres94
-      image_name: codeship/postgres
-      image_tag: "9.4"
-      registry: https://index.docker.io/v1/
-      encrypted_dockercfg_path: dockercfg.encrypted
-    - type: push
-      tag: master
-      name: postgres95_push
-      service: postgres95
-      image_name: codeship/postgres
-      image_tag: "9.5"
-      registry: https://index.docker.io/v1/
-      encrypted_dockercfg_path: dockercfg.encrypted
-    - type: push
-      tag: master
-      name: postgres96_push
-      service: postgres96
-      image_name: codeship/postgres
-      image_tag: "9.6"
-      registry: https://index.docker.io/v1/
-      encrypted_dockercfg_path: dockercfg.encrypted
-    - type: push
-      tag: master
-      name: postgres101_push
-      service: postgres101
-      image_name: codeship/postgres
-      image_tag: "10.1"
-      registry: https://index.docker.io/v1/
-      encrypted_dockercfg_path: dockercfg.encrypted
-
-- type: serial
-  name: Mariadb
-  steps:
-    - name: Building Mariadb
+      command: echo "Hello from PostgreSQL"
+    - name: Build MariaDB
       service: mariadbApp
-      command: true
-    - type: push
-      tag: master
-      name: mariadb101_push
-      service: mariadb101
-      image_name: codeship/mariadb
-      image_tag: "10.1"
-      registry: https://index.docker.io/v1/
-      encrypted_dockercfg_path: dockercfg.encrypted
+      command: echo "Hello from MariaDB"
+- type: serial
+  name: Deploy
+  tag: master
+  steps:
+    - type: serial
+      name: Deploy PostgreSQL
+      steps:
+        - &PUSH_STEP_DEFAULTS
+          type: push
+          name: Push PostgreSQL 9.3
+          service: postgres93
+          image_name: codeship/postgres
+          image_tag: "9.3"
+          registry: https://index.docker.io/v1/
+          encrypted_dockercfg_path: dockercfg.encrypted
+        - <<: *PUSH_STEP_DEFAULTS
+          name: Push PostgreSQL 9.4
+          service: postgres94
+          image_name: codeship/postgres
+          image_tag: "9.4"
+        - <<: *PUSH_STEP_DEFAULTS
+          name: Push PostgreSQL 9.5
+          service: postgres95
+          image_name: codeship/postgres
+          image_tag: "9.5"
+        - <<: *PUSH_STEP_DEFAULTS
+          name: Push PostreSQL 9.6
+          service: postgres96
+          image_name: codeship/postgres
+          image_tag: "9.6"
+        - <<: *PUSH_STEP_DEFAULTS
+          name: Push PostgreSQL 10.1
+          service: postgres101
+          image_name: codeship/postgres
+          image_tag: "10.1"
+    - type: serial
+      name: Deploy MariaDB
+      steps:
+        - <<: *PUSH_STEP_DEFAULTS
+          name: Push MariaDB 10.1
+          service: mariadb101
+          image_name: codeship/mariadb
+          image_tag: "10.1"
