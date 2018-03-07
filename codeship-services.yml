@@ -2,6 +2,8 @@ postgresApp:
   image: busybox:latest
   depends_on:
     - postgres93
+    - postgres94
+    - postgres95
     - postgres96
     - postgres101
 
@@ -15,6 +17,18 @@ postgres93:
     image: codeship/postgres:93
     context: ./postgres
     dockerfile: 9.3.dockerfile
+
+postgres94:
+  build:
+    image: codeship/postgres:94
+    context: ./postgres
+    dockerfile: 9.4.dockerfile
+
+postgres95:
+  build:
+    image: codeship/postgres:95
+    context: ./postgres
+    dockerfile: 9.5.dockerfile
 
 postgres96:
   build:
