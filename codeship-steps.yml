@@ -42,6 +42,11 @@
           service: postgres101
           image_name: codeship/postgres
           image_tag: "10.1"
+        - <<: *PUSH_STEP_DEFAULTS
+          name: Push PostgreSQL 11.1
+          service: postgres111
+          image_name: codeship/postgres
+          image_tag: "11.1"
     - type: serial
       name: Deploy MariaDB
       steps:

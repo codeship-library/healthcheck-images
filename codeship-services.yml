@@ -6,6 +6,7 @@ postgresApp:
     - postgres95
     - postgres96
     - postgres101
+    - postgres111
 
 mariadbApp:
   image: busybox:latest
@@ -41,6 +42,12 @@ postgres101:
     image: codeship/postgres:10.1
     context: ./postgres
     dockerfile: 10.1.dockerfile
+
+postgres111:
+  build:
+    image: codeship/postgres:11.1
+    context: ./postgres
+    dockerfile: 11.1.dockerfile
 
 mariadb101:
   build:
